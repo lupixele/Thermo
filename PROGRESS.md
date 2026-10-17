@@ -10,6 +10,8 @@ Updated to clean, concise names without any glyph placeholder boxes (`🔲`):
 Unused display mode toggle item removed to avoid dock clutter.
 
 ## Recent Decisions
+- [2026-10-17] Submitted official Pull Request to `microsoft/winget-pkgs` ([microsoft/winget-pkgs#454866](https://github.com/microsoft/winget-pkgs/pull/454866)) for `lupixele.Thermo` v1.0.0. CI validation running.
+- [2026-10-17] Created official GitHub repository at `https://github.com/lupixele/Thermo`, pushed all code, created Release `v1.0.0` with `Thermo-Setup-1.0.0-x64.exe` installer attached, and created + validated official WinGet manifests (`lupixele.Thermo`) with `windows-commandpalette-extension` tag.
 - [2026-10-17] Added Memory (RAM), CPU Usage, and GPU Usage metrics to both the in-palette ListPage (split into Temperatures and Activity & Memory sections) and as separate standalone `WrappedDockItem` widgets in the Dock edit list.
 - [2026-10-17] Converted Dock bands to standalone `WrappedDockItem` instances (`thermo.hardware.cpucore`, `thermo.hardware.cpuavg`, `thermo.hardware.gpucore`) so each renders as a completely single, independent widget in the Dock Edit list.
 - [2026-10-17] Split Dock bands into individual independent items: `CPU Core`, `CPU Avg`, `GPU Core`.
