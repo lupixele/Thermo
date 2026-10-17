@@ -1,0 +1,52 @@
+name: Build and Release Thermo
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore Thermo.sln
+
+      - name: Build Thermo Solution (x64 Release)
+        run: dotnet build Thermo.sln -c Release -p:Platform=x64
+
+      - name: Package Release Directory
+        shell: pwsh
+        run: |
+          $releaseDir = "Thermo-Release-x64"
+          New-Item -ItemType Directory -Force -Path $releaseDir
+
+          # Copy extension build output
+          Copy-Item -Path "Thermo\bin\x64\Release\net10.0-windows10.0.26100.0\win-x64\*" -Destination $releaseDir -Recurse
+
+          # Copy helper build output
+          Copy-Item -Path "ThermoHelper\bin\x64\Release\net10.0-windows10.0.26100.0\win-x64\ThermoHelper.*" -Destination $releaseDir
+
+          # Copy scripts and licenses
+          Copy-Item -Path "Install-ThermoHelper.ps1", "Uninstall-ThermoHelper.ps1", "README.md", "LICENSE" -Destination $releaseDir
+
+          Compress-Archive -Path "$releaseDir\*" -DestinationPath "Thermo-x64.zip" -Force
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: Thermo-x64.zip
+          generate_release_notes: true
