@@ -150,7 +150,7 @@ public partial class ThermoCommandsProvider : CommandProvider
 
         _cpuUsageItem.Title = $"CPU: {reading.FormatCpuUsage()}";
         _gpuUsageItem.Title = $"GPU: {reading.FormatGpuUsage()}";
-        _memoryItem.Title = $"RAM: {reading.FormatMemoryUsage()}";
+        _memoryItem.Title = $"RAM: {reading.FormatMemoryDock()}";
     }
 
     public override ICommandItem[] TopLevelCommands()
