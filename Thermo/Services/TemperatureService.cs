@@ -30,10 +30,7 @@ public class HardwareReading
     public string FormatCpuUsage() => CpuUsage.HasValue ? $"{Math.Round(CpuUsage.Value)}%" : "--";
     public string FormatGpuUsage() => GpuUsage.HasValue ? $"{Math.Round(GpuUsage.Value)}%" : "--";
     public string FormatMemoryUsage() => MemoryUsagePercent.HasValue ? $"{Math.Round(MemoryUsagePercent.Value)}%" : "--";
-    public string FormatMemoryDock() =>
-        (MemoryUsedGb.HasValue && MemoryUsagePercent.HasValue)
-            ? $"{MemoryUsedGb.Value:0.#} GB ({Math.Round(MemoryUsagePercent.Value)}%)"
-            : FormatMemoryUsage();
+    public string FormatMemoryDock() => MemoryUsedGb.HasValue ? $"{MemoryUsedGb.Value:0.#} GB" : "--";
     public string FormatMemoryDetailed() =>
         (MemoryUsedGb.HasValue && MemoryTotalGb.HasValue)
             ? $"{FormatMemoryUsage()} ({MemoryUsedGb.Value:0.#}/{MemoryTotalGb.Value:0.#} GB)"

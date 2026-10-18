@@ -10,6 +10,7 @@ Updated to clean, concise names without any glyph placeholder boxes (`🔲`):
 Unused display mode toggle item removed to avoid dock clutter.
 
 ## Recent Decisions
+- [2026-10-18] Compacted Memory (RAM) Dock widget title to `RAM: <used> GB` (e.g. `RAM: 14.1 GB`) removing the percentage suffix to avoid Dock width truncation.
 - [2026-10-18] Updated Memory (RAM) Dock display format to `RAM: <used> GB (<load>%)` (e.g. `RAM: 14.1 GB (59%)`).
 - [2026-10-18] CLA signed; all 11 CI validation and security checks passed 100% on [microsoft/winget-pkgs#454866](https://github.com/microsoft/winget-pkgs/pull/454866). PR is marked `MERGEABLE` and waiting for standard community moderator sign-off.
 - [2026-10-17] Submitted official Pull Request to `microsoft/winget-pkgs` ([microsoft/winget-pkgs#454866](https://github.com/microsoft/winget-pkgs/pull/454866)) for `lupixele.Thermo` v1.0.0. CI validation running.

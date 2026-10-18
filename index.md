@@ -17,7 +17,7 @@ A lightweight, Windows-native PowerToys Command Palette extension for real-time 
 - **GPU Core Temp**: `GPU Core: 48°C` (NVIDIA RTX 4060 graphics core)
 - **CPU Usage**: `CPU: 23%` (Win32 GetSystemTimes accurate processor load)
 - **GPU Usage**: `GPU: 15%` (NVIDIA graphics 3D / core load)
-- **Memory (RAM)**: `RAM: 14.1 GB (59%)` (Used GB and percentage via Win32 GlobalMemoryStatusEx)
+- **Memory (RAM)**: `RAM: 14.1 GB` (Physical memory in use via Win32 GlobalMemoryStatusEx)
 - **Individual Dock Bands**: In the Dock edit menu, all 6 metrics now appear as separate standalone items with authentic Segoe Fluent Icons (`` CPU, `` GPU, `` RAM, `` Activity), completely placeable and configurable on their own.
 
 ## File Structure Overview
